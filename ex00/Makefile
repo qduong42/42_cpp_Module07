@@ -6,7 +6,7 @@
 #    By: qduong <qduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 17:27:44 by qduong            #+#    #+#              #
-#    Updated: 2022/10/14 12:03:19 by qduong           ###   ########.fr        #
+#    Updated: 2022/10/14 12:21:23 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,9 @@ debug: $(SRCS) $(HEADER)
 	$(CC) $(CFLAGS) -D DEBUG=1 $(SRCS) -o debug.bi
 	./debug.bi
 
+subject:
+	$(CC) $(CFLAGS) subject_main.cpp -o subject.bi
+	
 valgrind:
 	valgrind --leak-check=full  --show-leak-kinds=all ./$(NAME)
 
@@ -52,7 +55,7 @@ leaks :
 	leaks --atExit -- ./$(NAME)
 
 clean:
-	$(RM) $(OBJS) main_test.o
+	$(RM) $(OBJS) *.o
 	$(RM) *.dSYM
 
 fclean:clean
