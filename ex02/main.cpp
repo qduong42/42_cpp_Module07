@@ -1,6 +1,6 @@
 #include "Array.hpp"
 // #include <typeinfo>
-
+// How to create const instance of template class or object class in general?
 int main() 
 {	
 	std::cout << "Empty constructor test" << std::endl;
