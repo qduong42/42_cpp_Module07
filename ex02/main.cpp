@@ -8,6 +8,7 @@ int main()
 	std::cout << "num.size(): " << num.size() << std::endl;
 	std::cout << "size n constructor test" << std::endl;
 	Array<char> str(5);
+	Array<char> str2(str);
 	std::cout << "str.size(): " << str.size() << std::endl;
 	// std::cout << "myint has type: " << typeid(num).name() << std::endl;
 	try{
@@ -19,4 +20,5 @@ int main()
 	}
 	str[3] = 'a';
 	std::cout << "str[3]:" << str[3] << std::endl;
+	str = str2;
 }

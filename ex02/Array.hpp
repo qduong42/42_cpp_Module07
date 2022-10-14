@@ -54,19 +54,24 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::Array(const Array &obj): _size(obj.size())
 {
+	std::cout << "The (deep) copy constructor for the class template Array is called!" << std::endl;
 	this->_array = new T[obj.size()];
 	for (unsigned int i = 0; i < obj.size(); i++)
 		this->_array[i] = obj._array[i];
-	std::cout << "The (deep) copy constructor for the class template Array is called!" << std::endl;
 }
 
 template <typename T>
 Array<T> &Array<T>::operator= (const Array &obj)
 {
-	this->_array = new T[obj.size()];
-	for (unsigned int i = 0; i < obj.size(); i++)
-		this->_array[i] = obj._array[i];
-	this->_size = obj.size();
+	std::cout << "Assignment operator called" << std::endl;
+	if (this != &obj)
+	{
+		delete [] this->_array;
+		this->_size = obj.size();
+		this->_array = new T[obj.size()];
+		for (unsigned int i = 0; i < obj.size(); i++)
+			this->_array[i] = obj._array[i];
+	}
 	return *this;
 }
 
