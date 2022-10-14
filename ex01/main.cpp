@@ -16,17 +16,13 @@
 
 int main(void)
 {
-	int arr[] = {564, 4572, 459, 12, 78, 90 };
+	int arr[] = {3, 5, 7, 9, 11, 13 };
 	char ar[] = "hello";
 	std::cout << "The given int array is:\n";
-	iter(arr, 6, &print);
-	std::cout << "The int array before add is:\n";
 	iter(arr, 6, &print);
 	iter(arr, 6, &add);
 	std::cout << "The int array after add is:\n";
 	iter(arr, 6, &print);
-	std::cout << "The given char array is:\n";
-	iter(ar, 5, &print);
 	std::cout << "Char arr before add:\n";
 	std::cout << ar << std::endl;
 	iter(ar, 5, &add);

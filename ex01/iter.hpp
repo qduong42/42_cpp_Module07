@@ -19,7 +19,7 @@ void print(T t)
 template <typename Z>
 void add(Z& z)
 {
-	z++;
+	z = z + 5;
 }
 
 #endif
