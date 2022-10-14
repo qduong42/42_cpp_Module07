@@ -19,3 +19,5 @@ myType max(myType a, myType b)
 
 - Calling templates: max<type> (param);
 - type replaces all myType
+
+## Ex01
