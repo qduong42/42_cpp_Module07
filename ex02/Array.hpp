@@ -2,6 +2,8 @@
 # define ARRAY_H
 #include <cstddef>
 #include <iostream>
+#include <algorithm>
+#include <vector>
 
 template <typename T>
 class Array{
@@ -13,7 +15,8 @@ class Array{
 	Array(const Array& obj);
 	Array& operator=(const Array& obj);
 	unsigned int size() const;
-	T& operator[] (const unsigned int index);
+	// T& operator[] (const unsigned int index);
+	T& operator[] (const unsigned int index)const;
 
 private:
 	unsigned int _size;
@@ -42,12 +45,11 @@ Array<T>::~Array()
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : _size(n), _array(new T[n])
 {
-	this->_size = n;
-	this->_array = new T[this->_size];
-	for (unsigned int i = 0; i < this->_size; ++i)
-		this->_array[i] = 0;
+	// this->_size = n;
+	// this->_array = new T[this->_size];
+	memset(_array, 1, sizeof(T) * n);
 	std::cout << "Array constructor of size n= " << this->size() << " is called!" << std::endl;
 }
 
@@ -77,7 +79,7 @@ unsigned int Array<T>::size() const
 }
 
 template <typename T>
-T& Array<T>::operator[] (const unsigned int index)
+T& Array<T>::operator[] (const unsigned int index)const
 {
 	if (index >= this->_size)
 		throw std::out_of_range("Only index 0 to (n-1) index allowed. Out of Bounds!");
